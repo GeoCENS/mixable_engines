@@ -7,7 +7,7 @@ module ActiveSupport::Dependencies
       @engine_paths ||= engine_paths
       @engine_paths.each do |path|
         engine_file = File.join(path, relative_name)
-        require_or_load_without_multiple(engine_file, const_path) if File.file?(engine_file)
+        require_or_load_without_multiple(engine_file, const_path) if File.file?("#{engine_file}.rb")
       end
     end
     require_or_load_without_multiple(file_name, const_path)
